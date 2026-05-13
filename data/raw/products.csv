@@ -1,0 +1,201 @@
+product_id,product_name,category,performance,relevance,innovation,scalability,monetization,final_score,success_label
+1,Product_1,Healthcare,3,2,2,10,5,4.3,Low
+2,Product_2,E-commerce,7,10,1,7,2,5.65,Medium
+3,Product_3,Healthcare,6,7,10,9,5,7.45,Medium
+4,Product_4,Healthcare,4,2,10,2,3,4.25,Low
+5,Product_5,AI Tools,1,8,5,2,4,3.85,Low
+6,Product_6,Healthcare,7,4,7,7,10,6.85,Medium
+7,Product_7,Healthcare,2,8,8,8,9,6.65,Medium
+8,Product_8,AI Tools,2,7,3,2,9,4.25,Low
+9,Product_9,EdTech,4,1,4,5,1,3.15,Low
+10,Product_10,SaaS,3,9,1,4,7,4.6,Low
+11,Product_11,SaaS,5,4,6,4,10,5.55,Medium
+12,Product_12,EdTech,10,10,4,1,7,6.55,Medium
+13,Product_13,E-commerce,7,8,9,3,10,7.25,Medium
+14,Product_14,FinTech,9,5,10,10,10,8.75,High
+15,Product_15,SaaS,8,1,2,5,6,4.5,Low
+16,Product_16,E-commerce,2,3,1,7,3,3.15,Low
+17,Product_17,Cybersecurity,5,2,3,10,4,4.85,Low
+18,Product_18,Cybersecurity,1,8,5,4,3,4.1,Low
+19,Product_19,SaaS,4,3,2,4,9,4.15,Low
+20,Product_20,SaaS,2,1,4,1,1,1.85,Low
+21,Product_21,SaaS,2,10,8,2,8,5.7,Medium
+22,Product_22,FinTech,2,9,10,8,7,6.95,Medium
+23,Product_23,SaaS,2,6,2,7,2,3.8,Low
+24,Product_24,Cybersecurity,7,8,8,10,3,7.4,Medium
+25,Product_25,EdTech,2,1,3,7,3,3.15,Low
+26,Product_26,E-commerce,6,7,9,6,7,6.95,Medium
+27,Product_27,AI Tools,2,2,4,7,6,4.0,Low
+28,Product_28,AI Tools,9,8,10,9,8,8.85,High
+29,Product_29,AI Tools,8,5,2,9,2,5.5,Medium
+30,Product_30,FinTech,6,6,4,6,10,6.2,Medium
+31,Product_31,Cybersecurity,4,2,9,5,9,5.55,Medium
+32,Product_32,FinTech,4,1,10,9,6,5.9,Medium
+33,Product_33,EdTech,7,6,7,1,4,5.15,Medium
+34,Product_34,EdTech,2,3,9,2,1,3.45,Low
+35,Product_35,EdTech,2,3,7,8,5,4.85,Low
+36,Product_36,EV,9,6,3,1,4,4.85,Low
+37,Product_37,Healthcare,4,5,6,6,9,5.75,Medium
+38,Product_38,E-commerce,10,1,2,1,2,3.6,Low
+39,Product_39,EV,9,9,6,8,10,8.35,High
+40,Product_40,FinTech,9,6,7,1,3,5.5,Medium
+41,Product_41,AI Tools,1,6,4,1,6,3.35,Low
+42,Product_42,EdTech,2,1,2,2,1,1.65,Low
+43,Product_43,Cybersecurity,9,4,7,8,10,7.55,Medium
+44,Product_44,EdTech,6,3,3,5,4,4.3,Low
+45,Product_45,EdTech,7,9,3,6,8,6.55,Medium
+46,Product_46,SaaS,4,5,8,7,4,5.6,Medium
+47,Product_47,Cybersecurity,3,7,2,2,6,3.85,Low
+48,Product_48,AI Tools,3,8,8,10,1,6.1,Medium
+49,Product_49,FinTech,8,7,1,9,3,5.85,Medium
+50,Product_50,SaaS,9,6,5,1,4,5.25,Medium
+51,Product_51,FinTech,1,2,5,4,6,3.35,Low
+52,Product_52,EV,9,2,3,4,5,4.8,Low
+53,Product_53,EV,4,1,9,1,8,4.4,Low
+54,Product_54,Cybersecurity,8,3,9,1,6,5.5,Medium
+55,Product_55,EV,4,7,8,9,2,6.1,Medium
+56,Product_56,FinTech,8,4,8,4,3,5.65,Medium
+57,Product_57,E-commerce,6,3,3,5,1,3.85,Low
+58,Product_58,EdTech,7,10,10,3,10,7.85,Medium
+59,Product_59,AI Tools,5,3,7,9,4,5.65,Medium
+60,Product_60,EV,3,1,1,4,7,3.0,Low
+61,Product_61,SaaS,9,7,2,5,5,5.8,Medium
+62,Product_62,Cybersecurity,8,2,7,3,8,5.6,Medium
+63,Product_63,AI Tools,6,9,7,8,8,7.5,Medium
+64,Product_64,AI Tools,10,8,8,3,8,7.5,Medium
+65,Product_65,AI Tools,10,4,1,8,8,6.3,Medium
+66,Product_66,EV,10,9,10,1,4,7.1,Medium
+67,Product_67,E-commerce,9,2,2,5,3,4.5,Low
+68,Product_68,FinTech,3,9,8,2,5,5.3,Medium
+69,Product_69,FinTech,9,4,10,6,3,6.7,Medium
+70,Product_70,AI Tools,10,9,2,2,10,6.6,Medium
+71,Product_71,SaaS,2,9,2,6,6,4.8,Low
+72,Product_72,Cybersecurity,8,8,5,1,8,6.0,Medium
+73,Product_73,FinTech,7,1,10,10,6,6.85,Medium
+74,Product_74,EV,5,6,9,2,2,4.95,Low
+75,Product_75,Healthcare,6,8,7,9,2,6.6,Medium
+76,Product_76,EV,8,10,1,7,1,5.75,Medium
+77,Product_77,SaaS,4,6,7,3,8,5.4,Medium
+78,Product_78,SaaS,7,7,10,2,8,6.75,Medium
+79,Product_79,FinTech,2,10,5,8,3,5.55,Medium
+80,Product_80,SaaS,8,9,9,8,3,7.65,Medium
+81,Product_81,EdTech,1,9,6,5,2,4.55,Low
+82,Product_82,AI Tools,8,10,9,3,10,7.9,Medium
+83,Product_83,SaaS,8,6,5,8,6,6.7,Medium
+84,Product_84,Healthcare,2,5,8,7,6,5.4,Medium
+85,Product_85,Cybersecurity,5,9,10,7,5,7.2,Medium
+86,Product_86,EV,6,3,2,2,5,3.65,Low
+87,Product_87,E-commerce,10,6,4,4,2,5.6,Medium
+88,Product_88,Cybersecurity,10,2,1,2,3,3.95,Low
+89,Product_89,FinTech,2,2,8,8,6,5.0,Medium
+90,Product_90,E-commerce,6,5,6,3,9,5.65,Medium
+91,Product_91,SaaS,8,4,3,3,9,5.35,Medium
+92,Product_92,SaaS,6,9,7,5,8,6.9,Medium
+93,Product_93,Cybersecurity,2,6,8,2,4,4.3,Low
+94,Product_94,SaaS,9,5,1,1,10,5.15,Medium
+95,Product_95,Cybersecurity,6,3,7,2,1,4.05,Low
+96,Product_96,AI Tools,5,7,1,9,8,5.85,Medium
+97,Product_97,E-commerce,4,3,5,8,1,4.35,Low
+98,Product_98,SaaS,1,3,10,5,5,4.6,Low
+99,Product_99,E-commerce,2,9,5,2,5,4.45,Low
+100,Product_100,EdTech,6,10,10,6,5,7.45,Medium
+101,Product_101,E-commerce,3,9,2,7,5,5.1,Medium
+102,Product_102,SaaS,1,8,9,5,1,4.8,Low
+103,Product_103,E-commerce,3,8,10,8,8,7.15,Medium
+104,Product_104,EV,1,6,8,7,2,4.75,Low
+105,Product_105,SaaS,7,3,4,8,2,5.05,Medium
+106,Product_106,SaaS,10,4,6,2,8,6.1,Medium
+107,Product_107,AI Tools,5,4,3,4,4,4.05,Low
+108,Product_108,FinTech,4,1,1,3,9,3.35,Low
+109,Product_109,AI Tools,3,5,1,10,8,5.15,Medium
+110,Product_110,Healthcare,10,9,8,7,8,8.5,High
+111,Product_111,E-commerce,10,1,2,10,7,6.15,Medium
+112,Product_112,Cybersecurity,9,3,5,4,9,6.0,Medium
+113,Product_113,E-commerce,1,1,9,6,3,3.9,Low
+114,Product_114,EdTech,1,7,3,9,1,4.2,Low
+115,Product_115,EV,5,7,4,5,7,5.5,Medium
+116,Product_116,SaaS,1,5,3,7,3,3.7,Low
+117,Product_117,E-commerce,7,5,1,2,3,3.8,Low
+118,Product_118,AI Tools,10,8,4,4,4,6.3,Medium
+119,Product_119,Cybersecurity,10,1,3,10,8,6.5,Medium
+120,Product_120,EV,4,9,10,9,3,7.05,Medium
+121,Product_121,SaaS,4,7,5,6,10,6.1,Medium
+122,Product_122,AI Tools,9,9,10,4,1,7.0,Medium
+123,Product_123,FinTech,10,2,7,5,7,6.35,Medium
+124,Product_124,E-commerce,3,10,6,3,3,5.0,Medium
+125,Product_125,EV,8,5,10,1,3,5.65,Medium
+126,Product_126,SaaS,8,1,9,5,8,6.2,Medium
+127,Product_127,Healthcare,5,9,1,6,9,5.8,Medium
+128,Product_128,E-commerce,6,6,1,3,6,4.4,Low
+129,Product_129,AI Tools,9,10,9,10,8,9.25,High
+130,Product_130,Cybersecurity,5,9,3,3,10,5.75,Medium
+131,Product_131,EV,5,1,1,8,3,3.7,Low
+132,Product_132,Healthcare,4,6,7,10,10,7.1,Medium
+133,Product_133,Healthcare,9,1,4,4,10,5.55,Medium
+134,Product_134,AI Tools,7,2,3,10,9,6.1,Medium
+135,Product_135,Cybersecurity,7,8,8,3,6,6.45,Medium
+136,Product_136,Healthcare,6,2,3,3,6,4.0,Low
+137,Product_137,SaaS,3,5,7,4,3,4.4,Low
+138,Product_138,SaaS,9,1,10,7,4,6.45,Medium
+139,Product_139,E-commerce,5,1,4,7,6,4.55,Low
+140,Product_140,SaaS,9,7,3,6,9,6.8,Medium
+141,Product_141,FinTech,10,8,7,2,3,6.35,Medium
+142,Product_142,E-commerce,3,10,2,2,7,4.6,Low
+143,Product_143,Healthcare,7,9,4,4,3,5.6,Medium
+144,Product_144,Cybersecurity,9,2,6,3,8,5.65,Medium
+145,Product_145,Cybersecurity,6,9,5,3,8,6.1,Medium
+146,Product_146,Healthcare,9,9,2,1,5,5.4,Medium
+147,Product_147,Healthcare,7,3,8,9,2,6.05,Medium
+148,Product_148,Healthcare,5,9,8,2,4,5.65,Medium
+149,Product_149,EdTech,1,9,3,10,4,5.25,Medium
+150,Product_150,SaaS,9,1,5,5,8,5.65,Medium
+151,Product_151,Healthcare,6,6,5,10,4,6.3,Medium
+152,Product_152,E-commerce,6,4,9,6,2,5.6,Medium
+153,Product_153,AI Tools,3,5,5,10,10,6.25,Medium
+154,Product_154,EdTech,5,2,10,6,3,5.3,Medium
+155,Product_155,EdTech,2,4,7,7,4,4.7,Low
+156,Product_156,Cybersecurity,5,8,7,7,4,6.25,Medium
+157,Product_157,SaaS,8,8,7,7,5,7.15,Medium
+158,Product_158,EdTech,1,9,8,4,6,5.35,Medium
+159,Product_159,AI Tools,4,7,8,9,3,6.25,Medium
+160,Product_160,SaaS,1,5,1,9,10,4.75,Low
+161,Product_161,SaaS,10,6,7,4,5,6.65,Medium
+162,Product_162,SaaS,6,8,7,4,9,6.65,Medium
+163,Product_163,E-commerce,8,2,10,4,1,5.35,Medium
+164,Product_164,E-commerce,5,7,5,5,7,5.7,Medium
+165,Product_165,EdTech,7,3,10,5,7,6.4,Medium
+166,Product_166,SaaS,7,10,3,2,10,6.25,Medium
+167,Product_167,EV,2,5,2,1,1,2.25,Low
+168,Product_168,SaaS,7,10,8,2,8,6.95,Medium
+169,Product_169,SaaS,3,10,8,5,5,6.1,Medium
+170,Product_170,Healthcare,4,4,4,4,8,4.6,Low
+171,Product_171,Cybersecurity,2,1,1,1,5,1.85,Low
+172,Product_172,AI Tools,1,3,7,1,5,3.2,Low
+173,Product_173,FinTech,4,4,6,3,9,4.95,Low
+174,Product_174,E-commerce,3,9,8,5,9,6.5,Medium
+175,Product_175,AI Tools,8,6,7,3,1,5.35,Medium
+176,Product_176,FinTech,2,4,9,7,6,5.4,Medium
+177,Product_177,SaaS,9,7,6,5,5,6.6,Medium
+178,Product_178,E-commerce,9,10,1,1,8,5.85,Medium
+179,Product_179,E-commerce,6,3,9,6,8,6.3,Medium
+180,Product_180,FinTech,9,4,4,8,10,6.95,Medium
+181,Product_181,Cybersecurity,2,7,2,1,4,3.1,Low
+182,Product_182,EV,1,6,5,2,4,3.45,Low
+183,Product_183,Healthcare,8,4,2,6,6,5.3,Medium
+184,Product_184,AI Tools,5,6,3,7,10,5.95,Medium
+185,Product_185,E-commerce,4,5,5,9,1,4.95,Low
+186,Product_186,EV,5,3,2,7,1,3.8,Low
+187,Product_187,EdTech,3,3,5,9,6,5.05,Medium
+188,Product_188,EdTech,8,10,1,9,5,6.75,Medium
+189,Product_189,EdTech,10,5,2,9,1,5.85,Medium
+190,Product_190,Healthcare,4,5,1,6,7,4.45,Low
+191,Product_191,FinTech,4,4,8,10,10,6.9,Medium
+192,Product_192,E-commerce,2,2,4,5,10,4.2,Low
+193,Product_193,EV,5,1,6,8,9,5.6,Medium
+194,Product_194,Healthcare,3,2,5,10,7,5.2,Medium
+195,Product_195,EdTech,3,9,10,3,10,6.65,Medium
+196,Product_196,EdTech,2,7,2,5,5,4.05,Low
+197,Product_197,EdTech,5,9,9,1,5,5.8,Medium
+198,Product_198,Healthcare,9,5,9,3,7,6.7,Medium
+199,Product_199,E-commerce,2,9,8,5,7,5.95,Medium
+200,Product_200,AI Tools,10,10,7,8,10,9.0,High
