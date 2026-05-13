@@ -60,16 +60,5 @@ Explainability Layer
 Visualization Dashboard
             ↓
 Downloadable Results
-
-prism-framework/
-│
-├── config/
-├── data/
-├── models/
-├── src/
-├── notebooks/
-├── logs/
-├── results/
-├── tests/
 ├── docs/
 └── assets/
