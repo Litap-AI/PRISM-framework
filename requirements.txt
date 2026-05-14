@@ -1,13 +1,7 @@
 streamlit==1.35.0
-tensorflow==2.16.1
-keras==3.3.3
 numpy==1.26.4
 pandas==2.2.2
-scikit-learn==1.5.0
-scipy==1.13.1
+scikit-learn==1.4.2
+tensorflow==2.16.1
 joblib==1.4.2
 plotly==5.22.0
-matplotlib==3.9.0
-protobuf==4.25.3
-h5py==3.11.0
-pillow==10.3.0
