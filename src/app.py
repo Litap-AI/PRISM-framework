@@ -4,6 +4,7 @@ import pandas as pd
 import joblib
 import base64
 import plotly.graph_objects as go
+import plotly.express as px
 
 from tensorflow.keras.models import load_model
 
@@ -52,10 +53,7 @@ def set_background(image_file):
         left: 0;
         width: 100%;
         height: 100%;
-
-        background: rgba(0, 0, 0, 0.92);
-        backdrop-filter: blur(3px);
-
+        background: rgba(0, 0, 0, 0.88);
         z-index: -1;
     }}
 
@@ -64,17 +62,13 @@ def set_background(image_file):
     }}
 
     section[data-testid="stSidebar"] {{
-        background: rgba(10, 10, 20, 0.88);
+        background: rgba(10, 10, 20, 0.90);
     }}
 
     .stMetric {{
         background-color: rgba(255,255,255,0.08);
         padding: 15px;
         border-radius: 12px;
-    }}
-
-    .block-container {{
-        padding-top: 2rem;
     }}
 
     </style>
@@ -92,7 +86,7 @@ def set_background(image_file):
 set_background("assets/assets/prism_bg.png")
 
 # =========================================================
-# LOAD MODEL + ARTIFACTS
+# LOAD MODEL
 # =========================================================
 
 model = load_model("models/prism_ann.keras")
@@ -109,70 +103,284 @@ label_encoder = joblib.load(
 
 st.title("🚀 PRISM AI Decision Framework")
 
-st.markdown("""
-### Intelligent Product Evaluation and Prioritization System
-Analyze products using AI-powered PRISM scoring and ANN prediction.
-""")
+st.caption(
+    "AI-powered product ranking and strategic prioritization framework"
+)
 
 st.divider()
 
-# =========================================================
-# SIDEBAR INPUTS
-# =========================================================
+# ============================================================
+# STRATEGIC PRIORITY WEIGHTS
+# ============================================================
 
-st.sidebar.title("📊 Product Parameters")
+st.sidebar.header("🎯 Strategic Priority Weights")
 
-performance = st.sidebar.slider(
-    "Performance",
-    1,
+performance_weight = st.sidebar.slider(
+    "Performance Weight",
+    0,
     10,
     5
 )
 
-relevance = st.sidebar.slider(
-    "Relevance",
-    1,
+relevance_weight = st.sidebar.slider(
+    "Relevance Weight",
+    0,
     10,
     5
 )
 
-innovation = st.sidebar.slider(
-    "Innovation",
-    1,
+innovation_weight = st.sidebar.slider(
+    "Innovation Weight",
+    0,
     10,
     5
 )
 
-scalability = st.sidebar.slider(
-    "Scalability",
-    1,
+scalability_weight = st.sidebar.slider(
+    "Scalability Weight",
+    0,
     10,
     5
 )
 
-monetization = st.sidebar.slider(
-    "Monetization",
-    1,
+monetization_weight = st.sidebar.slider(
+    "Monetization Weight",
+    0,
     10,
     5
 )
 
 # =========================================================
-# CSV UPLOAD SECTION
+# TABS
 # =========================================================
 
-st.sidebar.divider()
-
-st.sidebar.subheader("📂 Upload Product CSV")
-
-uploaded_file = st.sidebar.file_uploader(
-    "Upload CSV File",
-    type=["csv"]
-)
+tab1, tab2 = st.tabs([
+    "🎯 Strategic Product Search",
+    "📂 CSV Dataset Analysis"
+])
 
 # =========================================================
-# CALCULATIONS
+# TAB 1
 # =========================================================
+
+with tab1:
+
+    st.subheader("🎯 Strategic Preference Configuration")
+
+    st.caption(
+        "Set your ideal product profile from 0 (low priority) to 10 (high priority)"
+    )
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+
+    with col1:
+        performance = st.slider(
+            "Performance",
+            0,
+            10,
+            5
+        )
+
+    with col2:
+        relevance = st.slider(
+            "Relevance",
+            0,
+            10,
+            5
+        )
+
+    with col3:
+        innovation = st.slider(
+            "Innovation",
+            0,
+            10,
+            5
+        )
+
+    with col4:
+        scalability = st.slider(
+            "Scalability",
+            0,
+            10,
+            5
+        )
+
+    with col5:
+        monetization = st.slider(
+            "Monetization",
+            0,
+            10,
+            5
+        )
+# =========================================================
+# TAB 2
+# =========================================================
+
+with tab2:
+
+    st.header("📂 CSV Dataset Upload")
+
+    st.info(
+        "Upload product metadata CSV to generate strategic ranking and ANN predictions."
+    )
+
+    uploaded_file = st.file_uploader(
+        "Upload Product Metadata CSV",
+        type=["csv"]
+    )
+
+    if uploaded_file is not None:
+
+        st.success("✅ CSV Uploaded Successfully")
+
+        # READ CSV
+        df = pd.read_csv(uploaded_file)
+
+        # SHOW DATA
+        st.subheader("📊 Dataset Preview")
+
+        st.dataframe(
+            df.head(10),
+            use_container_width=True
+        )
+
+        # REQUIRED COLUMNS
+        required_columns = [
+            "performance",
+            "relevance",
+            "innovation",
+            "scalability",
+            "monetization"
+        ]
+
+        missing_cols = [
+            col for col in required_columns
+            if col not in df.columns
+        ]
+
+        if missing_cols:
+
+            st.error(
+                f"❌ Missing columns: {missing_cols}"
+            )
+
+        else:
+
+            if st.button("🚀 Generate PRISM Analysis"):
+
+             with st.spinner("Running PRISM Strategic Intelligence Engine..."):
+
+        # ============================================
+        # CUSTOM WEIGHTED SCORING
+        # ============================================
+
+                df ["PRISM_score"] = (
+                     df["performance"] * performance_weight +
+                     df["relevance"] * relevance_weight +
+                     df["innovation"] * innovation_weight +
+                     df["scalability"] * scalability_weight +
+                     df["monetization"] * monetization_weight
+                )
+
+        # ============================================
+        # ANN PREDICTION
+        # ============================================
+
+        required_columns = [
+            "performance",
+            "relevance",
+            "innovation",
+            "scalability",
+            "monetization"
+        ]
+
+        scaled_input = scaler.transform(
+            df[required_columns]
+        )
+
+        predictions = model.predict(
+            scaled_input,
+            verbose=0
+        )
+
+        predicted_classes = predictions.argmax(
+            axis=1
+        )
+
+        predicted_labels = (
+            label_encoder.inverse_transform(
+                predicted_classes
+            )
+        )
+
+        df["ANN_Prediction"] = predicted_labels
+
+        # ============================================
+        # SORT RESULTS
+        # ============================================
+
+        ranked_df = df.sort_values(
+            by="PRISM_score",
+            ascending=False
+        )
+
+        top_10 = ranked_df.head(10)
+
+        # ============================================
+        # RESULTS
+        # ============================================
+
+        st.success("✅ PRISM Analysis Completed")
+
+        st.subheader("🏆 Top 10 Strategic Product Matches")
+
+        st.dataframe(
+            top_10,
+            use_container_width=True
+        )
+
+        # ============================================
+        # CHART
+        # ============================================
+
+        fig = px.bar(
+            top_10,
+            x="product_name",
+            y="PRISM_score",
+            color="ANN_Prediction",
+            title="Top Ranked Strategic Products"
+        )
+
+        fig.update_layout(
+            template="plotly_dark",
+            height=500
+        )
+
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
+
+        # ============================================
+        # DOWNLOAD
+        # ============================================
+
+        csv = ranked_df.to_csv(
+            index=False
+        ).encode("utf-8")
+
+        st.download_button(
+            label="📥 Download Ranked Results",
+            data=csv,
+            file_name="prism_ranked_results.csv",
+            mime="text/csv"
+        )
+
+# =========================================================
+# PRISM CALCULATIONS
+# =========================================================
+
+st.divider()
 
 score = calculate_prism_score(
     performance,
@@ -206,10 +414,8 @@ input_data = pd.DataFrame([
     }
 ])
 
-# Scale input
 input_scaled = scaler.transform(input_data)
 
-# Predict
 prediction = model.predict(input_scaled)
 
 predicted_class = prediction.argmax(axis=1)
@@ -222,50 +428,25 @@ predicted_label = label_encoder.inverse_transform(
 # MAIN METRICS
 # =========================================================
 
-col1, col2, col3 = st.columns(3)
+m1, m2, m3 = st.columns(3)
 
-with col1:
+with m1:
     st.metric(
-        label="📈 PRISM Score",
-        value=round(score, 2)
+        "📈 PRISM Score",
+        round(score, 2)
     )
 
-with col2:
+with m2:
     st.metric(
-        label="🧠 ANN Prediction",
-        value=predicted_label
+        "🤖 ANN Prediction",
+        predicted_label
     )
 
-with col3:
+with m3:
     st.metric(
-        label="📌 Classification",
-        value=classification
+        "📌 Classification",
+        classification
     )
-
-st.divider()
-
-# =========================================================
-# PRISM PARAMETERS DISPLAY
-# =========================================================
-
-st.subheader("📊 PRISM Parameter Scores")
-
-param_col1, param_col2, param_col3, param_col4, param_col5 = st.columns(5)
-
-with param_col1:
-    st.metric("Performance", performance)
-
-with param_col2:
-    st.metric("Relevance", relevance)
-
-with param_col3:
-    st.metric("Innovation", innovation)
-
-with param_col4:
-    st.metric("Scalability", scalability)
-
-with param_col5:
-    st.metric("Monetization", monetization)
 
 # =========================================================
 # RADAR CHART
@@ -273,7 +454,7 @@ with param_col5:
 
 st.divider()
 
-st.subheader("🕸️ PRISM Radar Analysis")
+st.subheader("🕸️ Strategic Radar Analysis")
 
 categories = [
     "Performance",
@@ -291,196 +472,35 @@ values = [
     monetization
 ]
 
-# Close radar polygon
 values += values[:1]
 categories += categories[:1]
 
-fig = go.Figure()
+radar_fig = go.Figure()
 
-fig.add_trace(go.Scatterpolar(
-    r=values,
-    theta=categories,
-    fill='toself',
-    name='PRISM Analysis'
-))
+radar_fig.add_trace(
+    go.Scatterpolar(
+        r=values,
+        theta=categories,
+        fill="toself",
+        name="PRISM"
+    )
+)
 
-fig.update_layout(
+radar_fig.update_layout(
     polar=dict(
         radialaxis=dict(
             visible=True,
             range=[0, 10]
         )
     ),
-    showlegend=False,
     template="plotly_dark",
     height=500
 )
 
 st.plotly_chart(
-    fig,
+    radar_fig,
     use_container_width=True
 )
-# =========================================================
-# FEATURE CONTRIBUTION ANALYSIS
-# =========================================================
-
-st.divider()
-
-st.subheader("🧠 PRISM Contribution Analysis")
-
-feature_scores = {
-    "Performance": performance,
-    "Relevance": relevance,
-    "Innovation": innovation,
-    "Scalability": scalability,
-    "Monetization": monetization
-}
-
-contribution_df = pd.DataFrame({
-    "Feature": list(feature_scores.keys()),
-    "Score": list(feature_scores.values())
-})
-
-# Sort descending
-contribution_df = contribution_df.sort_values(
-    by="Score",
-    ascending=False
-)
-
-st.dataframe(contribution_df)
-
-# Plot Bar Chart
-fig_bar = go.Figure()
-
-fig_bar.add_trace(go.Bar(
-    x=contribution_df["Feature"],
-    y=contribution_df["Score"]
-))
-
-fig_bar.update_layout(
-    title="Feature Contribution Strength",
-    template="plotly_dark",
-    height=500
-)
-
-st.plotly_chart(
-    fig_bar,
-    use_container_width=True
-)
-
-
-# =========================================================
-# RECOMMENDATIONS
-# =========================================================
-
-st.divider()
-
-st.subheader("💡 Strategic Recommendations")
-
-for rec in recommendations:
-    st.success(rec)
-
-# =========================================================
-# ANN CONFIDENCE SCORES
-# =========================================================
-
-st.divider()
-
-st.subheader("🤖 ANN Confidence Scores")
-
-labels = label_encoder.classes_
-
-for i, label in enumerate(labels):
-
-    probability = prediction[0][i]
-
-    st.progress(float(probability))
-
-    st.write(
-        f"**{label}** : {probability:.4f}"
-    )
-
-# =========================================================
-# BATCH PRODUCT ANALYSIS
-# =========================================================
-
-if uploaded_file is not None:
-
-    st.divider()
-
-    st.header("📊 Batch Product Analysis")
-
-    # Load CSV
-    batch_df = pd.read_csv(uploaded_file)
-
-    st.subheader("Uploaded Dataset")
-
-    st.dataframe(batch_df)
-
-    # Required features
-    feature_columns = [
-        "performance",
-        "relevance",
-        "innovation",
-        "scalability",
-        "monetization"
-    ]
-
-    # Scale features
-    scaled_features = scaler.transform(
-        batch_df[feature_columns]
-    )
-
-    # ANN Predictions
-    predictions = model.predict(
-        scaled_features
-    )
-
-    predicted_classes = predictions.argmax(axis=1)
-
-    predicted_labels = label_encoder.inverse_transform(
-        predicted_classes
-    )
-
-    # PRISM Scores
-    prism_scores = []
-
-    for _, row in batch_df.iterrows():
-
-        score = calculate_prism_score(
-            row["performance"],
-            row["relevance"],
-            row["innovation"],
-            row["scalability"],
-            row["monetization"]
-        )
-
-        prism_scores.append(score)
-
-    # Add Results
-    batch_df["PRISM_Score"] = prism_scores
-
-    batch_df["ANN_Prediction"] = predicted_labels
-
-    # Ranking
-    batch_df = batch_df.sort_values(
-        by="PRISM_Score",
-        ascending=False
-    )
-
-    st.subheader("🏆 Ranked Product Analysis")
-
-    st.dataframe(batch_df)
-
-    # Download results
-    csv = batch_df.to_csv(index=False)
-
-    st.download_button(
-        label="📥 Download Results CSV",
-        data=csv,
-        file_name="prism_analysis_results.csv",
-        mime="text/csv"
-    )
 
 # =========================================================
 # FOOTER
