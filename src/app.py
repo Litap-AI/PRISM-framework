@@ -37,62 +37,62 @@ recommendation = "No recommendation available"
 # BACKGROUND FUNCTION
 # =========================================================
 
-def set_background(image_file):
 
-    with open(image_file, "rb") as image:
-        encoded = base64.b64encode(
-            image.read()
-        ).decode()
+# def set_background(image_file):
 
-    background_css = f"""
-    <style>
+#     with open(image_file, "rb") as image:
+#         encoded = base64.b64encode(
+#             image.read()
+#         ).decode()
 
-    .stApp {{
-        background-image: url("data:image/png;base64,{encoded}");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-    }}
+#     background_css = f"""
+#     <style>
 
-    .stApp::before {{
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.88);
-        z-index: -1;
-    }}
+#     .stApp {{
+#         background-image: url("data:image/png;base64,{encoded}");
+#         background-size: contain;
+#         background-repeat: no-repeat;
+#         background-position: center;
+#         background-attachment: fixed;
+#     }}
 
-    h1, h2, h3, h4, h5, h6, p, div, label {{
-        color: white !important;
-    }}
+#     .stApp::before {{
+#         content: "";
+#         position: fixed;
+#         top: 0;
+#         left: 0;
+#         width: 100%;
+#         height: 100%;
+#         background: rgba(0, 0, 0, 0.88);
+#         z-index: -1;
+#     }}
 
-    section[data-testid="stSidebar"] {{
-        background: rgba(10, 10, 20, 0.90);
-    }}
+#     h1, h2, h3, h4, h5, h6, p, div, label {{
+#         color: white !important;
+#     }}
 
-    .stMetric {{
-        background-color: rgba(255,255,255,0.08);
-        padding: 15px;
-        border-radius: 12px;
-    }}
+#     section[data-testid="stSidebar"] {{
+#         background: rgba(10, 10, 20, 0.90);
+#     }}
 
-    </style>
-    """
+#     .stMetric {{
+#         background-color: rgba(255,255,255,0.08);
+#         padding: 15px;
+#         border-radius: 12px;
+#     }}
 
-    st.markdown(
-        background_css,
-        unsafe_allow_html=True
-    )
+#     </style>
+#     """
 
+#     st.markdown(
+#         background_css,
+#         unsafe_allow_html=True
+#     )
 # =========================================================
 # APPLY BACKGROUND
 # =========================================================
 
-set_background("assets/assets/prism_bg.png")
+# set_background("assets/assets/prism_bg.png")
 
 # =========================================================
 # LOAD MODEL
