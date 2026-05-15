@@ -305,8 +305,25 @@ with tab2:
         else:
 
             if st.button("🚀 Generate PRISM Analysis"):
+                 
+                 ranked_df = df.sort_values(
+                       by="PRISM_score",
+                       ascending=False
+                 )
 
-             with st.spinner("Running PRISM Strategic Intelligence Engine..."):
+                 csv = ranked_df.to_csv(
+                     index=False
+                 ).encode("utf-8")
+
+                 st.download_button(
+                     label="📥 Download Ranked Results",
+                     data=csv,
+                     file_name="prism_ranked_results.csv",
+                     mime="text/csv"
+           )
+
+        with st.spinner("Running PRISM Strategic Intelligence Engine..."):
+
 
         # ============================================
         # CUSTOM WEIGHTED SCORING
@@ -331,22 +348,22 @@ with tab2:
         # SORT RESULTS
         # ============================================
 
-            ranked_df = df.sort_values(
+                ranked_df = df.sort_values(
                  by="PRISM_score",
                  ascending=False
                )
 
-            top_10 = ranked_df.head(10)
+                top_10 = ranked_df.head(10)
 
         # ============================================
         # RESULTS
         # ============================================
 
-            st.success("✅ PRISM Analysis Completed")
+                st.success("✅ PRISM Analysis Completed")
 
-            st.subheader("🏆 Top 10 Strategic Product Matches")
+                st.subheader("🏆 Top 10 Strategic Product Matches")
 
-            st.dataframe(
+                st.dataframe(
                  top_10,
                  use_container_width=True
             )
