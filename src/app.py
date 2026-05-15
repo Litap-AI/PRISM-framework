@@ -445,19 +445,11 @@ recommendations = generate_recommendation(
 # ANN PREDICTION
 # =========================================================
 
-input_data = pd.DataFrame([
-    {
-        "performance": performance,
-        "relevance": relevance,
-        "innovation": innovation,
-        "scalability": scalability,
-        "monetization": monetization
-    }
-])
+# ============================================
+# ANN PREDICTION
+# ============================================
 
 predicted_label = "Demo Mode"
-
-st.info("⚠️ ANN temporarily disabled for deployment stability.")
 
 # =========================================================
 # MAIN METRICS
