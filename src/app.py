@@ -351,11 +351,7 @@ with tab2:
                     st.success("PRISM Analysis Completed")
 
                     st.subheader("🏆 Top 10 Strategic Product Matches")
-
-                    st.dataframe(
-                        top_10,
-                        use_container_width=True
-                    )
+                    st.dataframe(ranked_df)
 
                     # ============================================
                     # DOWNLOAD CSV
