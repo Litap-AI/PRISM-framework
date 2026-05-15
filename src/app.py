@@ -377,11 +377,11 @@ with tab2:
         # DOWNLOAD
         # ============================================
 
-            csv = ranked_df.to_csv(
+        csv = ranked_df.to_csv(
                  index=False
             ).encode("utf-8")
 
-            st.download_button(
+        st.download_button(
                  label="📥 Download Ranked Results",
                  data=csv,
                  file_name="prism_ranked_results.csv",
