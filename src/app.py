@@ -331,7 +331,7 @@ with tab2:
         # SORT RESULTS
         # ============================================
 
-                ranked_df = df.sort_values(
+            ranked_df = df.sort_values(
                  by="PRISM_score",
                  ascending=False
                )
