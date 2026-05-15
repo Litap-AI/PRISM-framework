@@ -390,20 +390,6 @@ with tab2:
         #     use_container_width=True
         # )
 
-        # ============================================
-        # DOWNLOAD
-        # ============================================
-
-    csv = ranked_df.to_csv(
-                 index=False
-            ).encode("utf-8")
-
-    st.download_button(
-                 label="📥 Download Ranked Results",
-                 data=csv,
-                 file_name="prism_ranked_results.csv",
-                 mime="text/csv"
-            )
 
 # =========================================================
 # PRISM CALCULATIONS
