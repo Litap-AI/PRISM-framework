@@ -304,25 +304,67 @@ with tab2:
 
         else:
 
+
             if st.button("🚀 Generate PRISM Analysis"):
-                 
-                 ranked_df = df.sort_values(
-                       by="PRISM_score",
-                       ascending=False
-                 )
 
-                 csv = ranked_df.to_csv(
-                     index=False
-                 ).encode("utf-8")
+                with st.spinner("Running PRISM Strategic Intelligence Engine..."):
 
-                 st.download_button(
-                     label="📥 Download Ranked Results",
-                     data=csv,
-                     file_name="prism_ranked_results.csv",
-                     mime="text/csv"
-           )
+                    # ============================================
+                    # CUSTOM WEIGHTED SCORING
+                    # ============================================
 
-        with st.spinner("Running PRISM Strategic Intelligence Engine..."):
+                    df["PRISM_score"] = (
+                        df["performance"] * performance_weight +
+                        df["relevance"] * relevance_weight +
+                        df["innovation"] * innovation_weight +
+                        df["scalability"] * scalability_weight +
+                        df["monetization"] * monetization_weight
+                    )
+
+                    # ============================================
+                    # DEMO ANN OUTPUT
+                    # ============================================
+
+                    df["ANN_Prediction"] = "Demo Mode"
+
+                    # ============================================
+                    # SORT RESULTS
+                    # ============================================
+
+                    ranked_df = df.sort_values(
+                        by="PRISM_score",
+                        ascending=False
+                    )
+
+                    top_10 = ranked_df.head(10)
+
+                    # ============================================
+                    # RESULTS
+                    # ============================================
+
+                    st.success("✅ PRISM Analysis Completed")
+
+                    st.subheader("🏆 Top 10 Strategic Product Matches")
+
+                    st.dataframe(
+                        top_10,
+                        use_container_width=True
+                    )
+
+                    # ============================================
+                    # DOWNLOAD CSV
+                    # ============================================
+
+                    csv = ranked_df.to_csv(
+                        index=False
+                    ).encode("utf-8")
+
+                    st.download_button(
+                        label="📥 Download Ranked Results",
+                        data=csv,
+                        file_name="prism_ranked_results.csv",
+                        mime="text/csv"
+                    )
 
 
         # ============================================

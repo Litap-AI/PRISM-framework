@@ -2,9 +2,9 @@ import joblib
 import os
 import matplotlib.pyplot as plt
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras.utils import to_categorical
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+from keras.utils import to_categorical
 
 # Load processed data
 X_train = joblib.load("data/processed/X_train.pkl")

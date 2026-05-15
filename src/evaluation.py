@@ -2,7 +2,7 @@ import joblib
 import os
 import matplotlib.pyplot as plt
 
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 from sklearn.metrics import (
     confusion_matrix,
     classification_report,
