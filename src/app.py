@@ -89,13 +89,16 @@ set_background("assets/assets/prism_bg.png")
 # LOAD MODEL
 # =========================================================
 
-model = load_model("models/prism_ann.keras")
+try:
+    model = load_model("models/prism_ann.keras")
+    scaler = joblib.load("models/scaler.pkl")
+    label_encoder = joblib.load("models/label_encoder.pkl")
+    model_loaded = True
 
-scaler = joblib.load("models/scaler.pkl")
+except Exception as e:
+    st.warning(f"ANN model could not be loaded: {e}")
+    model_loaded = False
 
-label_encoder = joblib.load(
-    "models/label_encoder.pkl"
-)
 
 # =========================================================
 # TITLE
@@ -414,15 +417,23 @@ input_data = pd.DataFrame([
     }
 ])
 
-input_scaled = scaler.transform(input_data)
+if model_loaded:
 
-prediction = model.predict(input_scaled)
+    input_scaled = scaler.transform(input_data)
 
-predicted_class = prediction.argmax(axis=1)
+    prediction = model.predict(input_scaled)
 
-predicted_label = label_encoder.inverse_transform(
-    predicted_class
-)[0]
+    predicted_class = prediction.argmax(axis=1)
+
+    predicted_label = label_encoder.inverse_transform(
+        predicted_class
+    )[0]
+
+    st.success(f"🤖 ANN Prediction: {predicted_label}")
+
+else:
+
+    st.info("⚠️ ANN model unavailable in deployment mode.")
 
 # =========================================================
 # MAIN METRICS
