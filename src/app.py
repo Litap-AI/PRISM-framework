@@ -6,7 +6,7 @@ import base64
 import plotly.graph_objects as go
 import plotly.express as px
 
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 from src.prism_rules import (
     calculate_prism_score,
