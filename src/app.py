@@ -99,21 +99,37 @@ recommendation = "No recommendation available"
 # LOAD MODEL
 # =========================================================
 
-try:
-    model = load_model("models/prism_ann.keras")
-    scaler = joblib.load("models/scaler.pkl")
-    label_encoder = joblib.load("models/label_encoder.pkl")
+@st.cache_resource
+def load_ann_model():
 
-    model_loaded = True
+    try:
+        model = load_model(
+            "models/prism_ann.keras",
+            compile=False
+        )
 
-except Exception as e:
+        scaler = joblib.load(
+            "models/scaler.pkl"
+        )
 
-    st.warning("⚠️ ANN model unavailable in deployment mode.")
+        label_encoder = joblib.load(
+            "models/label_encoder.pkl"
+        )
 
-    model_loaded = False
-    model = None
-    scaler = None
-    label_encoder = None
+        return model, scaler, label_encoder
+
+    except Exception as e:
+
+        st.warning(
+            f"ANN model unavailable: {e}"
+        )
+
+        return None, None, None
+
+
+model, scaler, label_encoder = load_ann_model()
+
+model_loaded = model is not None
 
 
 # =========================================================
@@ -301,59 +317,65 @@ with tab2:
                      df["monetization"] * monetization_weight
                 )
 
-        # ============================================
-        # ANN PREDICTION
-        # ============================================
+# # ============================================
+# ANN PREDICTION
+# ============================================
 
-        required_columns = [
-            "performance",
-            "relevance",
-            "innovation",
-            "scalability",
-            "monetization"
-        ]
+if model_loaded:
 
-        scaled_input = scaler.transform(
-            df[required_columns]
+    required_columns = [
+        "performance",
+        "relevance",
+        "innovation",
+        "scalability",
+        "monetization"
+    ]
+
+    scaled_input = scaler.transform(
+        df[required_columns]
+    )
+
+    predictions = model.predict(
+        scaled_input,
+        verbose=0
+    )
+
+    predicted_classes = predictions.argmax(
+        axis=1
+    )
+
+    predicted_labels = (
+        label_encoder.inverse_transform(
+            predicted_classes
         )
+    )
 
-        predictions = model.predict(
-            scaled_input,
-            verbose=0
-        )
+    df["ANN_Prediction"] = predicted_labels
 
-        predicted_classes = predictions.argmax(
-            axis=1
-        )
+else:
 
-        predicted_labels = (
-            label_encoder.inverse_transform(
-                predicted_classes
-            )
-        )
-
-        df["ANN_Prediction"] = predicted_labels
+    df["ANN_Prediction"] = "Demo Mode"
 
         # ============================================
         # SORT RESULTS
         # ============================================
 
-        ranked_df = df.sort_values(
+    ranked_df = df.sort_values(
             by="PRISM_score",
             ascending=False
         )
 
-        top_10 = ranked_df.head(10)
+    top_10 = ranked_df.head(10)
 
         # ============================================
         # RESULTS
         # ============================================
 
-        st.success("✅ PRISM Analysis Completed")
+    st.success("✅ PRISM Analysis Completed")
 
-        st.subheader("🏆 Top 10 Strategic Product Matches")
+    st.subheader("🏆 Top 10 Strategic Product Matches")
 
-        st.dataframe(
+    st.dataframe(
             top_10,
             use_container_width=True
         )
@@ -384,11 +406,11 @@ with tab2:
         # DOWNLOAD
         # ============================================
 
-        csv = ranked_df.to_csv(
+    csv = ranked_df.to_csv(
             index=False
         ).encode("utf-8")
 
-        st.download_button(
+    st.download_button(
             label="📥 Download Ranked Results",
             data=csv,
             file_name="prism_ranked_results.csv",
