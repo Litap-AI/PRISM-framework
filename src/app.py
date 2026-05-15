@@ -342,14 +342,14 @@ with tab2:
         # RESULTS
         # ============================================
 
-    st.success("✅ PRISM Analysis Completed")
+            st.success("✅ PRISM Analysis Completed")
 
-    st.subheader("🏆 Top 10 Strategic Product Matches")
+            st.subheader("🏆 Top 10 Strategic Product Matches")
 
-    st.dataframe(
-            top_10,
-            use_container_width=True
-        )
+            st.dataframe(
+                 top_10,
+                 use_container_width=True
+            )
 
         # ============================================
         # CHART
