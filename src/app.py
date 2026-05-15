@@ -25,6 +25,15 @@ st.set_page_config(
 )
 
 # =========================================================
+# SAFE DEFAULT VALUES
+# =========================================================
+
+predicted_label = "Unavailable"
+classification = "Unknown"
+score = 0
+recommendation = "No recommendation available"
+
+# =========================================================
 # BACKGROUND FUNCTION
 # =========================================================
 
@@ -447,7 +456,7 @@ else:
 
 if not model_loaded:
     predicted_label = "Unavailable"
-    
+
 m1, m2, m3 = st.columns(3)
 
 with m1:
