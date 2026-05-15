@@ -320,21 +320,21 @@ with tab2:
                      df["monetization"] * monetization_weight
                 )
 
-# ============================================
-# DEMO ANN OUTPUT
-# ============================================
+        # ============================================
+        # DEMO ANN OUTPUT
+        # ============================================
 
 
-    df["ANN_Prediction"] = "Demo Mode"
+                df["ANN_Prediction"] = "Demo Mode"
 
         # ============================================
         # SORT RESULTS
         # ============================================
 
-    ranked_df = df.sort_values(
-            by="PRISM_score",
-            ascending=False
-        )
+                ranked_df = df.sort_values(
+                 by="PRISM_score",
+                 ascending=False
+               )
 
     top_10 = ranked_df.head(10)
 
