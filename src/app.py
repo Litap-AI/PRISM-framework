@@ -317,42 +317,10 @@ with tab2:
                      df["monetization"] * monetization_weight
                 )
 
-# # ============================================
-# ANN PREDICTION
+# ============================================
+# DEMO ANN OUTPUT
 # ============================================
 
-if model_loaded:
-
-    required_columns = [
-        "performance",
-        "relevance",
-        "innovation",
-        "scalability",
-        "monetization"
-    ]
-
-    scaled_input = scaler.transform(
-        df[required_columns]
-    )
-
-    predictions = model.predict(
-        scaled_input,
-        verbose=0
-    )
-
-    predicted_classes = predictions.argmax(
-        axis=1
-    )
-
-    predicted_labels = (
-        label_encoder.inverse_transform(
-            predicted_classes
-        )
-    )
-
-    df["ANN_Prediction"] = predicted_labels
-
-else:
 
     df["ANN_Prediction"] = "Demo Mode"
 
