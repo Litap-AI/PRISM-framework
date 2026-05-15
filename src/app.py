@@ -93,11 +93,17 @@ try:
     model = load_model("models/prism_ann.keras")
     scaler = joblib.load("models/scaler.pkl")
     label_encoder = joblib.load("models/label_encoder.pkl")
+
     model_loaded = True
 
 except Exception as e:
-    st.warning(f"ANN model could not be loaded: {e}")
+
+    st.warning("⚠️ ANN model unavailable in deployment mode.")
+
     model_loaded = False
+    model = None
+    scaler = None
+    label_encoder = None
 
 
 # =========================================================
