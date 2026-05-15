@@ -23,6 +23,7 @@ st.set_page_config(
     page_icon="🚀",
     layout="wide"
 )
+st.success("✅ PRISM app loaded successfully")
 
 # =========================================================
 # SAFE DEFAULT VALUES
@@ -361,23 +362,23 @@ with tab2:
         # CHART
         # ============================================
 
-        fig = px.bar(
-            top_10,
-            x="product_name",
-            y="PRISM_score",
-            color="ANN_Prediction",
-            title="Top Ranked Strategic Products"
-        )
+        # fig = px.bar(
+        #     top_10,
+        #     x="product_name",
+        #     y="PRISM_score",
+        #     color="ANN_Prediction",
+        #     title="Top Ranked Strategic Products"
+        # )
 
-        fig.update_layout(
-            template="plotly_dark",
-            height=500
-        )
+        # fig.update_layout(
+        #     template="plotly_dark",
+        #     height=500
+        # )
 
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+        # st.plotly_chart(
+        #     fig,
+        #     use_container_width=True
+        # )
 
         # ============================================
         # DOWNLOAD
@@ -432,23 +433,9 @@ input_data = pd.DataFrame([
     }
 ])
 
-if model_loaded:
+predicted_label = "Demo Mode"
 
-    input_scaled = scaler.transform(input_data)
-
-    prediction = model.predict(input_scaled)
-
-    predicted_class = prediction.argmax(axis=1)
-
-    predicted_label = label_encoder.inverse_transform(
-        predicted_class
-    )[0]
-
-    st.success(f"🤖 ANN Prediction: {predicted_label}")
-
-else:
-
-    st.info("⚠️ ANN model unavailable in deployment mode.")
+st.info("⚠️ ANN temporarily disabled for deployment stability.")
 
 # =========================================================
 # MAIN METRICS
@@ -481,55 +468,55 @@ with m3:
 # RADAR CHART
 # =========================================================
 
-st.divider()
+# st.divider()
 
-st.subheader("🕸️ Strategic Radar Analysis")
+# st.subheader("🕸️ Strategic Radar Analysis")
 
-categories = [
-    "Performance",
-    "Relevance",
-    "Innovation",
-    "Scalability",
-    "Monetization"
-]
+# categories = [
+#     "Performance",
+#     "Relevance",
+#     "Innovation",
+#     "Scalability",
+#     "Monetization"
+# ]
 
-values = [
-    performance,
-    relevance,
-    innovation,
-    scalability,
-    monetization
-]
+# values = [
+#     performance,
+#     relevance,
+#     innovation,
+#     scalability,
+#     monetization
+# ]
 
-values += values[:1]
-categories += categories[:1]
+# values += values[:1]
+# categories += categories[:1]
 
-radar_fig = go.Figure()
+# radar_fig = go.Figure()
 
-radar_fig.add_trace(
-    go.Scatterpolar(
-        r=values,
-        theta=categories,
-        fill="toself",
-        name="PRISM"
-    )
-)
+# radar_fig.add_trace(
+#     go.Scatterpolar(
+#         r=values,
+#         theta=categories,
+#         fill="toself",
+#         name="PRISM"
+#     )
+# )
 
-radar_fig.update_layout(
-    polar=dict(
-        radialaxis=dict(
-            visible=True,
-            range=[0, 10]
-        )
-    ),
-    template="plotly_dark",
-    height=500
-)
+# radar_fig.update_layout(
+#     polar=dict(
+#         radialaxis=dict(
+#             visible=True,
+#             range=[0, 10]
+#         )
+#     ),
+#     template="plotly_dark",
+#     height=500
+# )
 
-st.plotly_chart(
-    radar_fig,
-    use_container_width=True
-)
+# st.plotly_chart(
+#     radar_fig,
+#     use_container_width=True
+# )
 
 # =========================================================
 # FOOTER
