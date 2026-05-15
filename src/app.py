@@ -336,7 +336,7 @@ with tab2:
                  ascending=False
                )
 
-    top_10 = ranked_df.head(10)
+            top_10 = ranked_df.head(10)
 
         # ============================================
         # RESULTS
