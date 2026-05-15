@@ -445,6 +445,9 @@ else:
 # MAIN METRICS
 # =========================================================
 
+if not model_loaded:
+    predicted_label = "Unavailable"
+    
 m1, m2, m3 = st.columns(3)
 
 with m1:
