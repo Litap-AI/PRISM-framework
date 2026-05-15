@@ -120,9 +120,12 @@ def load_ann_model():
 
     except Exception as e:
 
-        st.warning(
-            f"ANN model unavailable: {e}"
-        )
+        # =========================================================
+        # DISABLED ANN MODEL FOR CLOUD DEPLOYMENT
+        # =========================================================
+
+        model_loaded = False
+        
 
         return None, None, None
 
