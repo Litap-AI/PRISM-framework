@@ -274,6 +274,12 @@ with tab2:
         # READ CSV
         df = pd.read_csv(uploaded_file)
 
+        df.columns = df.columns.str.strip().str.lower()
+        
+
+        st.write(df.columns)
+        st.write(df.head())
+
         # SHOW DATA
         st.subheader("📊 Dataset Preview")
 
