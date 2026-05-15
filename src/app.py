@@ -8,7 +8,7 @@ import plotly.express as px
 
 from tensorflow.keras.models import load_model
 
-from prism_rules import (
+from src.prism_rules import (
     calculate_prism_score,
     classify_product,
     generate_recommendation
