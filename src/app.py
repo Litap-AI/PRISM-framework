@@ -273,29 +273,22 @@ with tab2:
 
         # READ CSV
         df = pd.read_csv(uploaded_file)
-
+        
+        # CLEAN COLUMN NAMES
         df.columns = df.columns.str.strip().str.lower()
-        st.write("CSV Columns:", df.columns.tolist())
-        st.write("CSV Preview:")
 
-        st.write(df.head())
-
-        # SHOW DATA
-        st.subheader("📊 Dataset Preview")
-
-        st.dataframe(
-            df.head(10),
-            use_container_width=True
-        )
+        # DEBUG
+        st.write("Columns:", df.columns.tolist())
 
         # REQUIRED COLUMNS
         required_columns = [
-            "performance",
-            "relevance",
-            "innovation",
-            "scalability",
-            "monetization"
+             "performance",
+             "relevance",
+             "innovation",
+             "scalability",
+             "monetization"
         ]
+
 
         missing_cols = [
             col for col in required_columns
@@ -304,12 +297,21 @@ with tab2:
 
         if missing_cols:
 
-            st.error(
-                f"❌ Missing columns: {missing_cols}"
+            st.error(f"Missing columns: {missing_cols}"
             )
 
         else:
+            # FORCE NUMERIC VALUES
+            for col in required_columns:
+                df[col] = pd.to_numeric(
+                    df[col],
+                    errors="coerce"
+                )
+            # REMOVE BAD ROWS
+            df = df.dropna(subset=required_columns)
 
+            st.write("Cleaned Data:")
+            st.dataframe(df.head())           
 
             if st.button("🚀 Generate PRISM Analysis"):
 
@@ -342,13 +344,11 @@ with tab2:
                         ascending=False
                     )
 
-                    top_10 = ranked_df.head(10)
-
                     # ============================================
                     # RESULTS
                     # ============================================
 
-                    st.success("✅ PRISM Analysis Completed")
+                    st.success("PRISM Analysis Completed")
 
                     st.subheader("🏆 Top 10 Strategic Product Matches")
 
@@ -366,10 +366,11 @@ with tab2:
                     ).encode("utf-8")
 
                     st.download_button(
-                        label="📥 Download Ranked Results",
-                        data=csv,
-                        file_name="prism_ranked_results.csv",
-                        mime="text/csv"
+                        "Download Results",
+                         csv,
+                         "results.csv",
+                         "text/csv"
+            
                     )
 
 
