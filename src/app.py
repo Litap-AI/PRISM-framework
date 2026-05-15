@@ -275,9 +275,9 @@ with tab2:
         df = pd.read_csv(uploaded_file)
 
         df.columns = df.columns.str.strip().str.lower()
-        
+        st.write("CSV Columns:", df.columns.tolist())
+        st.write("CSV Preview:")
 
-        st.write(df.columns)
         st.write(df.head())
 
         # SHOW DATA
