@@ -62,14 +62,3 @@ Visualization Dashboard
 Downloadable Results
 ├── docs/
 └── assets/
-
-# PRISM Architecture
-
-```mermaid
-graph TD
-A[CSV Upload] --> B[Data Cleaning]
-B --> C[Feature Extraction]
-C --> D[PRISM Engine]
-D --> E[ANN Prediction]
-E --> F[Risk Dashboard]
-```
