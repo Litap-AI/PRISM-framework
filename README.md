@@ -1,3 +1,12 @@
+![PRISM Framework Banner](assets/banner.png)
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Python](https://img.shields.io/badge/python-3.9+-green)
+![Streamlit](https://img.shields.io/badge/streamlit-deployed-red)
+![AI](https://img.shields.io/badge/AI-Framework-purple)
+![Status](https://img.shields.io/badge/status-active-success)
+
+AI-Driven Product Evaluation and Prioritization System
 # 🚀 PRISM Framework
 
 ## AI-Driven Product Evaluation and Prioritization System
