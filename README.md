@@ -71,3 +71,9 @@ Visualization Dashboard
 Downloadable Results
 ├── docs/
 └── assets/
+
+---
+
+## Author
+
+Rohit Patil
