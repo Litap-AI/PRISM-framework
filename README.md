@@ -74,7 +74,7 @@ Downloadable Results
 ```
 ---
 ## License 
-Copyright © 2026 Rohit Patil
+Copyright © 2026 rohitmanikraopatil.com
 
 ---
 ## Author
