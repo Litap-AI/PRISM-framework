@@ -71,9 +71,13 @@ Visualization Dashboard
 Downloadable Results
 ├── docs/
 └── assets/
+```
+---
+## License 
+Copyright © 2026 Rohit Patil
 
 ---
-
 ## Author
 
 Rohit Patil
+---
